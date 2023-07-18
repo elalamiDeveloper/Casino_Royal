@@ -30,10 +30,10 @@ const Header = () => {
 
       <div className="btns-container">
         <ButtonSecondary>
-          <Link to="/2">connexion</Link>
+          <Link to="/login">connexion</Link>
         </ButtonSecondary>
         <ButtonPrimary>
-          <Link to="/">s'inscrire</Link>
+          <Link to="/signup">s'inscrire</Link>
         </ButtonPrimary>
       </div>
 

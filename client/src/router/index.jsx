@@ -1,14 +1,29 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import App from '../App';
-import { ErrorPage, HomePage } from '../pages/main_pages';
+import {
+  ErrorPage,
+  HomePage,
+  LoginPage,
+  SignUpPage,
+} from '../pages/main_pages';
+import { Toast } from '../components/UI';
 
 const router = createBrowserRouter([
   {
     path: '/',
     errorElement: <ErrorPage />,
-    element: <App />,
-    children: [{ path: '/', element: <HomePage /> }],
+    element: (
+      <>
+        <Toast />
+        <App />
+      </>
+    ),
+    children: [
+      { path: '/', element: <HomePage /> },
+      { path: '/login', element: <LoginPage /> },
+      { path: '/signup', element: <SignUpPage /> },
+    ],
   },
 ]);
 

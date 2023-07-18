@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { logoUrl } from '../../assets/images';
@@ -9,7 +10,9 @@ const LogoContainer = styled.div`
 const Logo = () => {
   return (
     <LogoContainer className="logo-container">
-      <img src={logoUrl} alt="logo casino royal" />
+      <Link to="/">
+        <img src={logoUrl} alt="logo casino royal" />
+      </Link>
     </LogoContainer>
   );
 };
