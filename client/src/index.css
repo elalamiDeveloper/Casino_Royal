@@ -20,3 +20,25 @@ body {
   min-height: 100vh;
   background: #f1f5f9;
 }
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+button {
+  font-family: inherit;
+  text-transform: capitalize;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}

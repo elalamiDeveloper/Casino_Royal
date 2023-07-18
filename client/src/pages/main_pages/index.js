@@ -1,3 +1,5 @@
 import ErrorPage from './ErrorPage';
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
 
-export { ErrorPage };
+export { ErrorPage, HomePage, LoginPage };
