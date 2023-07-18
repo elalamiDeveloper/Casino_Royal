@@ -1,9 +1,10 @@
-import styled from 'styled-components';
-
-const X = styled.div``;
-
 const App = () => {
-  return <X>OK</X>;
+  return (
+    <>
+      <h1>f</h1>
+      <p>OK</p>
+    </>
+  );
 };
 
 export default App;
