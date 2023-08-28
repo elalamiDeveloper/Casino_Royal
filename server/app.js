@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 
+import { usersRouter } from './routes/index.js';
 import { urlsError } from './middlewares/index.js';
 import { globalErrorHandler } from './controllers/errorsControllers.js';
 
@@ -11,9 +12,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json({ limit: '10kb' }));
 app.use(cors());
 
-app.route('/').get((req, res, next) => {
-  res.json({ status: 'success' });
-});
+app.use('/api/v1/users', usersRouter);
 app.all('*', urlsError);
 
 // ERRORS Handling
