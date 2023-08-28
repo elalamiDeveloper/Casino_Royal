@@ -14,7 +14,7 @@ const createUser = async (req, res, next) => {
 
     const user = await User.create(userBody);
 
-    res.status(200).json({
+    res.status(201).json({
       status: 'success',
       data: { user },
     });
@@ -23,4 +23,20 @@ const createUser = async (req, res, next) => {
   }
 };
 
-export { createUser };
+const getAllUsers = async (req, res, next) => {
+  try {
+    const users = await User.find();
+    const filtredUsers = users.map((user) =>
+      filterObject(user, 'id', 'firstName', 'email')
+    );
+
+    res.status(200).json({
+      status: 'success',
+      data: { users: filtredUsers },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { createUser, getAllUsers };
