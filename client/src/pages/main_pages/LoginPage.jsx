@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import styled from 'styled-components';
 
+import { showToast } from '../../utils';
 import { loginInputsList } from '../../assets/constants';
 import { ButtonPrimary, Input } from '../../components/UI';
-import { colors } from '../../assets';
+import { apiURL, colors } from '../../assets';
+import { authActions } from '../../redux/features/authSlice';
 
 const LoginPageContainer = styled.main`
   min-height: calc(100vh - 10.95rem);
@@ -64,6 +68,8 @@ const LoginPageContainer = styled.main`
 `;
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [loginInputs, setLoginInputs] = useState({
     username: '',
     password: '',
@@ -75,9 +81,19 @@ const LoginPage = () => {
       [e.target.name]: e.target.value,
     }));
 
-  const submitLoginFormHandler = (e) => {
+  const submitLoginFormHandler = async (e) => {
     e.preventDefault();
-    console.log(loginInputs);
+    try {
+      const {
+        data: { data },
+      } = await axios.post(`${apiURL}/users/login`, loginInputs);
+
+      navigate('/games/list');
+      dispatch(authActions.login(data));
+      showToast('success', 'Good Game');
+    } catch (err) {
+      showToast('error', 'Username or password is incorrect');
+    }
   };
 
   const formContent = loginInputsList.map(
@@ -107,8 +123,10 @@ const LoginPage = () => {
       </form>
 
       <div className="login-links">
-        <Link to="/">Mot de passe/nom d'utilisateur oublié ?</Link>
-        <Link to="/">Si vous n'avez pas de compte, inscrivez-vous ici</Link>
+        <Link to="/">Mot de passe/nom d&apos;utilisateur oublié ?</Link>
+        <Link to="/">
+          Si vous n&apos;avez pas de compte, inscrivez-vous ici
+        </Link>
       </div>
     </LoginPageContainer>
   );

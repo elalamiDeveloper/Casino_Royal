@@ -12,8 +12,6 @@ const App = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuth, user } = useSelector(({ auth }) => auth);
-  console.log(isAuth);
-  console.log(user);
 
   // Verify if user is authenticated in local storage
   useEffect(() => {
@@ -46,7 +44,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header isAuth={isAuth} />
       <Outlet />
     </>
   );

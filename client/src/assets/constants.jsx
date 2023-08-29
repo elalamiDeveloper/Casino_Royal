@@ -5,6 +5,7 @@ import {
   LuTable,
   PiPokerChipBold,
   BiSolidGift,
+  HiOutlineLogout,
 } from '../assets/icons';
 
 const navBarList = [
@@ -31,6 +32,12 @@ const navBarList = [
     path: '/gift',
     label: 'Cadeau',
     icon: <BiSolidGift className="navbar-icon" />,
+  },
+  {
+    id: uuidv4(),
+    path: '/login',
+    label: 'Logout',
+    icon: <HiOutlineLogout className="navbar-icon" />,
   },
 ];
 

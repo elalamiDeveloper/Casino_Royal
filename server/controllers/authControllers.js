@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
+
 import { User } from '../models/index.js';
 import { filterObject, AppError } from '../utils/index.js';
 

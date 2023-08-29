@@ -1,3 +1,4 @@
 import Header from './Header';
+import PokerTable from './PokerTable';
 
-export { Header };
+export { Header, PokerTable };

@@ -8,7 +8,7 @@ import {
   SignUpPage,
   GamesPage,
 } from '../pages/main_pages';
-import { GameListPage } from '../pages/second_pages';
+import { GameListPage, PokerPage } from '../pages/second_pages';
 import { Toast } from '../components/UI';
 
 const router = createBrowserRouter([
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: 'games/list',
         element: <GameListPage />,
+      },
+      {
+        path: 'games/poker',
+        element: <PokerPage />,
       },
     ],
   },
