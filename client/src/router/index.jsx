@@ -6,7 +6,9 @@ import {
   HomePage,
   LoginPage,
   SignUpPage,
+  GamesPage,
 } from '../pages/main_pages';
+import { GameListPage } from '../pages/second_pages';
 import { Toast } from '../components/UI';
 
 const router = createBrowserRouter([
@@ -21,8 +23,16 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '/', element: <HomePage /> },
-      { path: '/login', element: <LoginPage /> },
-      { path: '/signup', element: <SignUpPage /> },
+      { path: 'login', element: <LoginPage /> },
+      { path: 'signup', element: <SignUpPage /> },
+      {
+        path: 'games',
+        element: <GamesPage />,
+      },
+      {
+        path: 'games/list',
+        element: <GameListPage />,
+      },
     ],
   },
 ]);

@@ -3,7 +3,7 @@ import validator from 'validator';
 import bcrypt from 'bcrypt';
 
 const userSchema = new mongoose.Schema({
-  firstName: {
+  username: {
     type: String,
     required: [true, 'User must have a name'],
     trim: true,
@@ -31,9 +31,9 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, 'email is not valid'],
   },
 
-  birthday: {
+  birthYear: {
     type: Date,
-    required: [true, 'User must have a BirthDay'],
+    required: [true, 'User must have a birthYear'],
     validate: {
       //works with CREATE and SAVE operations
       validator: function (el) {
@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
         );
       },
 
-      message: "You Don't have plus 18 years",
+      message: "You Don't have more than 18 years",
     },
   },
 
@@ -55,6 +55,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ['admin', 'user'],
     default: 'user',
+  },
+
+  bankroll: {
+    type: Number,
+    default: 500,
+  },
+
+  stackEnJeu: {
+    type: Number,
+    default: 0,
   },
 });
 

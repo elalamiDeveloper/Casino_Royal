@@ -6,10 +6,10 @@ const createUser = async (req, res, next) => {
   try {
     const userBody = filterObject(
       req.body,
-      'firstName',
+      'username',
       'password',
       'email',
-      'birthday'
+      'birthYear'
     );
 
     const user = await User.create(userBody);
@@ -27,7 +27,7 @@ const getAllUsers = async (req, res, next) => {
   try {
     const users = await User.find();
     const filtredUsers = users.map((user) =>
-      filterObject(user, 'id', 'firstName', 'email')
+      filterObject(user, 'id', 'username', 'email')
     );
 
     res.status(200).json({
@@ -39,4 +39,17 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
-export { createUser, getAllUsers };
+const getUserByToken = async (req, res, next) => {
+  try {
+    res.status(200).json({
+      status: 'success',
+      data: {
+        user: req.user,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { createUser, getAllUsers, getUserByToken };
