@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <GameListPage />,
       },
       {
-        path: 'games/poker',
+        path: 'games/poker/table',
         element: <PokerPage />,
       },
       {
