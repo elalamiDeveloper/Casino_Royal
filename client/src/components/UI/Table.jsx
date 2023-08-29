@@ -27,6 +27,7 @@ const TableContainer = styled.table`
           ${colors.bgColor3};
         border-right: 0.2rem solid
           ${colors.bgColor3};
+        text-align: center;
       }
     }
   }

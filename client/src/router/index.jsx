@@ -5,6 +5,7 @@ import {
   ErrorPage,
   HomePage,
   LoginPage,
+  PokerRoomsPage,
   SignUpPage,
   GamesPage,
 } from '../pages/main_pages';
@@ -22,9 +23,22 @@ const router = createBrowserRouter([
       </>
     ),
     children: [
-      { path: '/', element: <HomePage /> },
-      { path: 'login', element: <LoginPage /> },
-      { path: 'signup', element: <SignUpPage /> },
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/login',
+        element: <LoginPage />,
+      },
+      {
+        path: '/signup',
+        element: <SignUpPage />,
+      },
+      {
+        path: '/rooms-poker',
+        element: <PokerPage />,
+      },
       {
         path: 'games',
         element: <GamesPage />,
@@ -36,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: 'games/poker',
         element: <PokerPage />,
+      },
+      {
+        path: 'games/poker/list',
+        element: <PokerRoomsPage />,
       },
     ],
   },
