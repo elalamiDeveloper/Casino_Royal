@@ -1,3 +1,4 @@
-import NavBar from './NavBar';
+import NavBar from "./NavBar";
+import RoomsList from "./RoomsList";
 
-export { NavBar };
+export { NavBar, RoomsList };

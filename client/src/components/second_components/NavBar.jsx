@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import { navBarList } from '../../assets/constants';
-import { colors } from '../../assets';
+import { navBarList } from "../../assets/constants";
+import { colors } from "../../assets";
 
 const NavBarContainer = styled.nav`
   grid-column: span 2;
@@ -43,18 +43,28 @@ const NavBarContainer = styled.nav`
 `;
 
 const NavBar = () => {
-  const navBarContent = navBarList.map((item) => (
-    <li key={item.id} className="navbar-item">
-      <Link className="navbar-link">
-        {item.icon}
-        <span className="navbar-text">{item.label}</span>
-      </Link>
-    </li>
-  ));
+  const navBarContent = navBarList.map(
+    (item) => (
+      <li
+        key={item.id}
+        className="navbar-item">
+        <Link
+          to={item.path}
+          className="navbar-link">
+          {item.icon}
+          <span className="navbar-text">
+            {item.label}
+          </span>
+        </Link>
+      </li>
+    )
+  );
 
   return (
     <NavBarContainer>
-      <ul className="navbar-list">{navBarContent}</ul>
+      <ul className="navbar-list">
+        {navBarContent}
+      </ul>
     </NavBarContainer>
   );
 };

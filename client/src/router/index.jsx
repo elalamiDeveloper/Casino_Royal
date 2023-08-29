@@ -1,20 +1,24 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from "react-router-dom";
 
-import App from '../App';
+import App from "../App";
 import {
   ErrorPage,
   HomePage,
   LoginPage,
-  PokerRoomsPage,
   SignUpPage,
   GamesPage,
-} from '../pages/main_pages';
-import { GameListPage, PokerPage } from '../pages/second_pages';
-import { Toast } from '../components/UI';
+} from "../pages/main_pages";
+import {
+  GameListPage,
+  PokerPage,
+  PokerRoomsPage,
+  RouletteRoomsPage,
+} from "../pages/second_pages";
+import { Toast } from "../components/UI";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     errorElement: <ErrorPage />,
     element: (
       <>
@@ -24,36 +28,36 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
+        path: "/",
         element: <HomePage />,
       },
       {
-        path: '/login',
+        path: "/login",
         element: <LoginPage />,
       },
       {
-        path: '/signup',
+        path: "/signup",
         element: <SignUpPage />,
       },
       {
-        path: '/rooms-poker',
-        element: <PokerPage />,
-      },
-      {
-        path: 'games',
+        path: "games",
         element: <GamesPage />,
       },
       {
-        path: 'games/list',
+        path: "games/list",
         element: <GameListPage />,
       },
       {
-        path: 'games/poker/table',
+        path: "games/poker/table",
         element: <PokerPage />,
       },
       {
-        path: 'games/poker/list',
+        path: "games/poker/list",
         element: <PokerRoomsPage />,
+      },
+      {
+        path: "games/roulette/list",
+        element: <RouletteRoomsPage />,
       },
     ],
   },
