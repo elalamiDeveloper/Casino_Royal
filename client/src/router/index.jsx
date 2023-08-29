@@ -1,17 +1,18 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from "react-router-dom";
 
-import App from '../App';
+import App from "../App";
 import {
   ErrorPage,
   HomePage,
   LoginPage,
+  PokerPage,
   SignUpPage,
-} from '../pages/main_pages';
-import { Toast } from '../components/UI';
+} from "../pages/main_pages";
+import { Toast } from "../components/UI";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     errorElement: <ErrorPage />,
     element: (
       <>
@@ -20,9 +21,22 @@ const router = createBrowserRouter([
       </>
     ),
     children: [
-      { path: '/', element: <HomePage /> },
-      { path: '/login', element: <LoginPage /> },
-      { path: '/signup', element: <SignUpPage /> },
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/signup",
+        element: <SignUpPage />,
+      },
+      {
+        path: "/rooms-poker",
+        element: <PokerPage />,
+      },
     ],
   },
 ]);
