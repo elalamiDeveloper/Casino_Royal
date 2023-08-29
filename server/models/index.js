@@ -1,3 +1,4 @@
-import User from './userModel.js';
+import User from "./userModel.js";
+import Room from "./roomModel.js";
 
-export { User };
+export { User, Room };
